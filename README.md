@@ -6,17 +6,18 @@ Bot Telegram sederhana berbasis [Telegraf](https://github.com/telegraf/telegraf)
 
 Token diambil dari [@BotFather](https://t.me/BotFather) di Telegram → kirim `/newbot`.
 
-**Simpan token di file `.env`** (file ini TIDAK ikut ter-upload ke GitHub):
+**Simpan token di `src/config.js`:**
 
-```bash
-cp .env.example .env
+```js
+export const config = {
+  token: "", // ← tempel token di sini, di antara tanda kutip
+  ipv4Only: false,
+};
 ```
 
-Lalu buka `.env` dan isi:
+Contoh: `token: "123456789:AAHxxxxxxxxxxxxxxxx"`,
 
-```
-BOT_TOKEN=123456789:ABCdefGhIJKlmNoPQRstUVwxyZ
-```
+> ⚠️ **Keamanan:** file ini ikut terpublikasi ke GitHub. **Jangan commit/push `src/config.js` setelah token diisi.** Kalau terlanjur bocor → reset di BotFather (`/revoke`).
 
 ## 🚀 Jalankan
 
@@ -25,19 +26,19 @@ npm install
 npm start
 ```
 
+Kalau bot gagal terhubung (jaringan IPv6 rusak), ubah `ipv4Only: true` di `src/config.js`.
+
 ## 📁 Struktur Project
 
 ```
 bot.js                  ← titik masuk (entry point)
 src/
-├── config.js           ← baca & validasi token dari .env
+├── config.js           ← ⚠️ ISI TOKEN DI SINI + pengaturan
 ├── bot.js              ← instance Telegraf
 └── handlers/
     ├── index.js        ← daftarkan semua handler di sini
     ├── commands.js     ← perintah /start /halo /info /teks
     └── messages.js     ← balasan otomatis pesan biasa
-.env                    ← token kamu (gitignored)
-.env.example            ← template token
 ```
 
 ## ➕ Cara Menambah Fitur
@@ -77,7 +78,7 @@ src/
 ### Pterodactyl (Node.js Egg)
 
 1. Upload semua file (kecuali `node_modules/`) via File Manager
-2. Buat file `.env` berisi `BOT_TOKEN=...`
+2. Isi token di `src/config.js` (langsung di panel)
 3. Startup → set file ke `bot.js`
 4. Start server — otomatis jalan 24/7 & restart saat crash
 
@@ -91,7 +92,6 @@ pm2 save && pm2 startup
 
 ## 🔐 Keamanan
 
-- Token hanya di `.env`, sudah masuk `.gitignore`
-- Jangan commit/push file `.env`
+- Token hanya di `src/config.js` — **jangan commit setelah diisi**
 - Jangan screenshot baris log error yang memuat token
 - Jika token bocor: reset via BotFather → `/revoke`
