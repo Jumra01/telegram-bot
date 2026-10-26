@@ -1,0 +1,8 @@
+# Token rahasia - jangan pernah di-push ke GitHub
+.env
+
+# Dependencies
+node_modules/
+
+# Log
+*.log
