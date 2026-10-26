@@ -32,5 +32,5 @@ export const config = {
   // true  = paksa koneksi IPv4 (aktifkan kalau bot gagal
   //         terhubung / jaringan IPv6 kamu rusak)
   // false = biarkan (otomatis, aman untuk VPS/panel)
-  ipv4Only: false,
+  ipv4Only: true,
 };
