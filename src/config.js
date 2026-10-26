@@ -29,6 +29,9 @@ if (!TOKEN) {
 
 export const config = {
   token: TOKEN,
+  // Paksa koneksi IPv4 — aktifkan kalau jaringan IPv6 kamu rusak
+  // (tambahkan FORCE_IPV4=1 di .env)
+  ipv4Only: process.env.FORCE_IPV4 === "1",
   // Tambahkan pengaturan lain di sini, contoh:
   // adminId: Number(process.env.ADMIN_ID ?? 0),
 };
