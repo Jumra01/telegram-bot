@@ -1,10 +1,10 @@
-// ─────────────────────────────────────────────
 // Titik masuk bot Telegram
 // Jalankan dengan:  npm start   (atau node bot.js)
-// ─────────────────────────────────────────────
+// Login remote sekali:  npm run login
 
 import { bot } from "./src/bot.js";
 import { registerHandlers } from "./src/handlers/index.js";
+import { connect } from "./src/remote.js";
 
 registerHandlers(bot);
 
@@ -15,6 +15,11 @@ bot.catch((err, ctx) => {
 
 bot.launch();
 console.log("✅ Bot Telegram berjalan... tekan Ctrl+C untuk berhenti.");
+
+// Coba hubungkan remote AlightBot (non-fatal kalau belum dikonfigurasi)
+connect().catch((e) =>
+  console.warn(`⚠️  Remote AlightBot belum aktif: ${e.message}`)
+);
 
 // Hentikan bot dengan rapi saat Ctrl+C
 process.once("SIGINT", () => bot.stop("SIGINT"));

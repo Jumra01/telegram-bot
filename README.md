@@ -73,6 +73,17 @@ src/
 - `/teks <pesan>` — echo pesan
 - Pesan biasa dibalas otomatis
 
+### 🎛 Remote AlightBot (opsional)
+
+Fitur "remote" akun Telegram kamu → @alightmotion321_bot:
+
+1. Isi `apiId` + `apiHash` di `src/config.js` (dari my.telegram.org/apps)
+2. Login sekali: `npm run login` (nomor HP + kode + PIN 2FA) → session disimpan di `session.txt`
+3. `npm start`, lalu perintah: `/menu`, `/buatakun`, `/kirim <teks>`, `/tekan <nomor>`
+
+> ⚠️ `session.txt` = akses penuh ke akun TG kamu, jangan dibagikan. Sudah ada di `.gitignore`.
+> Fitur ini memakai akun pribadi (userbot) — ada risiko ToS Telegram, jangan pakai akun utama.
+
 ## 🖥️ Deploy 24/7
 
 ### Pterodactyl (Node.js Egg)

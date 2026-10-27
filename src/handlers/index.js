@@ -1,5 +1,6 @@
 import { registerCommandHandlers } from "./commands.js";
 import { registerMessageHandlers } from "./messages.js";
+import { registerRemoteHandlers } from "./remote.js";
 
 /**
  * Pasang semua handler ke bot.
@@ -11,4 +12,5 @@ import { registerMessageHandlers } from "./messages.js";
 export function registerHandlers(bot) {
   registerCommandHandlers(bot);
   registerMessageHandlers(bot);
+  registerRemoteHandlers(bot);
 }

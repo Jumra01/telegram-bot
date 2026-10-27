@@ -33,4 +33,13 @@ export const config = {
   //         terhubung / jaringan IPv6 kamu rusak)
   // false = biarkan (otomatis, aman untuk VPS/panel)
   ipv4Only: true,
+
+  // ─────────────────────────────────────────────
+  // REMOTE ALIGHTBOT (opsional — kosongkan kalau tidak dipakai)
+  // Login sekali: npm run login
+  // ─────────────────────────────────────────────
+  apiId: 0, // <!-- dari my.telegram.org/apps → App api_id (angka)
+  apiHash: "", // <!-- dari my.telegram.org/apps → App api_hash (RAHASIA)
+  alightBot: "alightmotion321_bot",
+  collectSeconds: 6, // detik menunggu balasan AlightBot
 };

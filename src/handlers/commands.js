@@ -8,10 +8,15 @@ export function registerCommandHandlers(bot) {
   bot.start((ctx) =>
     ctx.reply(
       `Halo ${ctx.from.first_name}! 👋\nSaya bot Telegram berbasis Node.js.\n\n` +
-        "Perintah yang tersedia:\n" +
+        "Perintah:\n" +
         "/halo - sapa bot\n" +
         "/info - info pengguna\n" +
-        "/teks <pesan> - balas pesan Anda"
+        "/teks <pesan> - balas pesan Anda\n\n" +
+        "Remote AlightBot:\n" +
+        "/menu - muat menu AlightBot\n" +
+        "/buatakun - proses buat akun\n" +
+        "/kirim <teks> - kirim bebas\n" +
+        "/tekan <nomor> - tekan tombol"
     )
   );
 
