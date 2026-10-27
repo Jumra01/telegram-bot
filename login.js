@@ -22,8 +22,11 @@ async function main() {
   await client.start({
     phoneNumber: async () => (await rl.question("Nomor HP (format +628xxx): ")).trim(),
     password: async () => (await rl.question("PIN 2FA (kalau tidak ada, tekan Enter): ")).trim(),
-    code: async () => (await rl.question("Kode login dari Telegram (jangan bagikan ke siapapun): ")).trim(),
-    onError: (err) => console.error("Error:", err.message),
+    phoneCode: async () => (await rl.question("Kode login dari Telegram (jangan bagikan ke siapapun): ")).trim(),
+    onError: (err) => {
+      console.error("Error:", err.message);
+      return true; // hentikan proses (jangan diulang terus)
+    },
   });
 
   saveSession(client.session.save());
