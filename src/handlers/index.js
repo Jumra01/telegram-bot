@@ -11,6 +11,6 @@ import { registerRemoteHandlers } from "./remote.js";
  */
 export function registerHandlers(bot) {
   registerCommandHandlers(bot);
+  registerRemoteHandlers(bot); // sebelum messages.js (catch-all) supaya /menu dkk kejaring
   registerMessageHandlers(bot);
-  registerRemoteHandlers(bot);
 }
