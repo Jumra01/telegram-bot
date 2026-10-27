@@ -3,7 +3,7 @@
 import readline from "node:readline/promises";
 import { TelegramClient } from "teleproto";
 import { StringSession } from "teleproto/sessions/index.js";
-import { config } from "./config.js";
+import { config } from "./src/config.js";
 import { saveSession } from "./src/remote.js";
 
 async function main() {
